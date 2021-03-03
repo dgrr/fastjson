@@ -136,3 +136,10 @@ func (a *Arena) NewTrue() *Value {
 func (a *Arena) NewFalse() *Value {
 	return valueFalse
 }
+
+func (a *Arena) NewBool(v bool) *Value {
+	if v {
+		return valueTrue
+	}
+	return valueFalse
+}
