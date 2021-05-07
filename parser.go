@@ -2,10 +2,11 @@ package fastjson
 
 import (
 	"fmt"
-	"github.com/dgrr/fastjson/fastfloat"
 	"strconv"
 	"strings"
 	"unicode/utf16"
+
+	"github.com/dgrr/fastjson/fastfloat"
 )
 
 // Parser parses JSON.
@@ -605,6 +606,10 @@ func (v *Value) MarshalTo(dst []byte) []byte {
 	default:
 		panic(fmt.Errorf("BUG: unexpected Value type: %d", v.t))
 	}
+}
+
+func (v *Value) RawString() string {
+	return v.s
 }
 
 // String returns string representation of the v.
