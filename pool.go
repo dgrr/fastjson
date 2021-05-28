@@ -41,7 +41,11 @@ func (ap *ArenaPool) Get() *Arena {
 	if v == nil {
 		return &Arena{}
 	}
-	return v.(*Arena)
+
+	ar := v.(*Arena)
+	ar.Reset()
+
+	return ar
 }
 
 // Put returns a to ap.
